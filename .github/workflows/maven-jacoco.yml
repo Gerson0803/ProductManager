@@ -30,10 +30,11 @@ jobs:
 
       - name: Build, test, and verify coverage
         run: mvn clean verify
+        working-directory: ProductManager
 
       - name: Upload JaCoCo report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
-          path: target/site/jacoco
+          path: ProductManager/target/site/jacoco
